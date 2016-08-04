@@ -9,7 +9,7 @@ namespace ConsoleBlackjack
     internal class Player
     {
         private int Chips { get; set; }
-        private Hand hand;
+        private Hand hand { get; } // To allow splitting, player is going to need to have more than one hand...
 
         public Player()
         {
@@ -17,14 +17,35 @@ namespace ConsoleBlackjack
             hand = new Hand();
         }
 
-        public AddChips(int n)
+        public Player(int chips)
         {
-            Chips += n;
+            Chips = chips;
+            hand = new Hand();
         }
 
-        public RemoveChips(int n)
+        public int AddChips(int n)
+        {
+            Chips += n;
+            return Chips;
+        }
+
+        public int RemoveChips(int n)
         {
             Chips = Math.Abs(Chips - n); // Chips can't be negative.
+            return Chips;
+        }
+
+        // Returns the new value of the hand after receiving a card
+        public int ReceiveCard(Card c)
+        {
+            hand.AddCardToHand(c);
+            return hand.Value;
+        }
+
+        // Not sure if I'll need this on its own...
+        public int GetHandValue()
+        {
+            return hand.Value;
         }
     }
 }

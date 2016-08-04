@@ -61,7 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
+    <Compile Include="Dealer.cs" />
     <Compile Include="Deck.cs" />
+    <Compile Include="GameManager.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
