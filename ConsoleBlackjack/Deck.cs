@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleBlackjack
 {
-    internal class Deck
+    public class Deck
     {
         private static readonly Random rng = new Random(); // One RNG to rule them all. Or maybe I need an even more monolithic RNG in the game manager?
         private Stack<Card> cards;
@@ -48,8 +48,9 @@ namespace ConsoleBlackjack
             // Iterate over the suits
             for (var suit = 0; suit <= 3; ++suit)
             {
-                // Iterate over the ranks
-                for (var rank = 0; rank <= 13; ++rank)
+                // Iterate over the ranks. MUST index from 1 beacuse I decided to map Ace to 1 (and
+                // NOT zero).
+                for (var rank = 1; rank <= 13; ++rank)
                 {
                     Card c = new Card(suit, rank);
                     cards.Add(c);

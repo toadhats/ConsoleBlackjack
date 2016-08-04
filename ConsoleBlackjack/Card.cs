@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleBlackjack
 {
-    internal class Card
+    public class Card
     {
         private Suit suit;
         private Rank rank;
