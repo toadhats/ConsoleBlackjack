@@ -8,13 +8,13 @@ namespace ConsoleBlackjack
 {
     internal class Hand
     {
-        private List<Card> Cards { get; set; } // Is it even worth using properties or am i just cargo culting
+        private List<Card> Cards { get; set; } // Should this just be a field instead? I guess no because that would be inconsistent.
 
         public int Value
         {
             get
             {
-                value = 0; // Reset value to 0 temporaily - this whole thing sucks and should probably be refactored, why even store the value if we recalculate it every time it's needed?
+                value = 0; // Should I even be treating the hand value as a property if I'm recalculating it every time?
                 bool hasAce = false;
                 foreach (Card card in Cards)
                 {
@@ -50,18 +50,5 @@ namespace ConsoleBlackjack
         {
             Cards.Add(c);
         }
-
-        // Not using this anymore delete it once I'm confident
-        //private Boolean CheckForAce()
-        //{
-        //    foreach (Card card in Cards)
-        //    {
-        //        if (card.rank == (Card.Rank)1)
-        //        {
-        //            return true;
-        //        }
-        //    }
-        //    return false;
-        //}
     }
 }
