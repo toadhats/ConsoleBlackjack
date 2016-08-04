@@ -8,8 +8,8 @@ namespace ConsoleBlackjack
 {
     public class Card
     {
-        private Suit suit;
-        private Rank rank;
+        public Suit suit;
+        public Rank rank;
 
         // Compulsively creating a default constructor - this would only become useful if I tried to
         // serialise the cards or something.
