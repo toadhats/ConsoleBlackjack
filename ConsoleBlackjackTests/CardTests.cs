@@ -19,18 +19,18 @@ namespace ConsoleBlackjack.Tests
         {
             Card aceOfSpades = new Card(0, 1);
             Console.WriteLine(aceOfSpades.ToString());
-            Console.WriteLine("Value of card = {0}", aceOfSpades.GetValue());
-            Assert.AreEqual(aceOfSpades.GetValue(), 1);
+            Console.WriteLine("Value of card = {0}", aceOfSpades.Value);
+            Assert.AreEqual(aceOfSpades.Value, 1);
 
             Card tenOfDiamonds = new Card(2, 10);
             Console.WriteLine(tenOfDiamonds.ToString());
-            Console.WriteLine("Value of card = {0}", tenOfDiamonds.GetValue());
-            Assert.AreEqual(tenOfDiamonds.GetValue(), 10);
+            Console.WriteLine("Value of card = {0}", tenOfDiamonds.Value);
+            Assert.AreEqual(tenOfDiamonds.Value, 10);
 
             Card kingOfHearts = new Card(1, 13);
             Console.WriteLine(kingOfHearts.ToString());
-            Console.WriteLine("Value of card = {0}", kingOfHearts.GetValue());
-            Assert.AreEqual(kingOfHearts.GetValue(), 10);
+            Console.WriteLine("Value of card = {0}", kingOfHearts.Value);
+            Assert.AreEqual(kingOfHearts.Value, 10);
         }
 
         [TestMethod()]

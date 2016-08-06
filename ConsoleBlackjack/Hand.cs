@@ -24,7 +24,7 @@ namespace ConsoleBlackjack
                     {
                         hasAce = true;
                     }
-                    value += card.GetValue();
+                    value += card.Value;
                 }
                 // If making an ace high doesn't bust, we want to do that.
                 if (hasAce && (value + 10 <= 21))

@@ -45,7 +45,8 @@ namespace ConsoleBlackjack
             player.ReceiveCard(deck.DrawCard());
         }
 
-        // I'd need to refactor this if I wanted to allow flexible rules
+        // I'd need to refactor this if I wanted to allow flexible rules, eg hitting differently on
+        // soft hands
         public void Play()
         {
             while (hand.Value < dealerStands)
@@ -54,7 +55,7 @@ namespace ConsoleBlackjack
             }
         }
 
-        // Not sure if I'll need this on its own...
+        // This feels better than accessing Dealer.Hand.Value from the GameManager
         public int GetHandValue()
         {
             return hand.Value;

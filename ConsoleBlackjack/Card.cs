@@ -43,6 +43,7 @@ namespace ConsoleBlackjack
         // headaches later
         public enum Rank
         {
+            None = 0, // Added to comply with best practice, if we see this something has gone wrong.
             Ace = 1,
             Two,
             Three,
@@ -61,9 +62,12 @@ namespace ConsoleBlackjack
         // Returns the point value of the card - corresponds to rank up to 10, and then we take the
         // min to cap it there. Ace is 1 by default, need to handle whether to make it 10 elsewhere,
         // in the logic where we add up the points.
-        public int GetValue()
+        public int Value
         {
-            return Math.Min(10, (int)rank);
+            get
+            {
+                return Math.Min(10, (int)rank);
+            }
         }
 
         public override string ToString()

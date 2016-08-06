@@ -13,13 +13,13 @@ namespace ConsoleBlackjack
         private Deck deck;
 
         // Gameplay variables
-        public int startingChips = 1000;
+        private int startingChips = 1000;
 
         public GameManager()
         {
-            dealer = new Dealer();
-            player = new Player(startingChips);
             deck = new Deck();
+            dealer = new Dealer(deck);
+            player = new Player(startingChips);
         }
     }
 }
