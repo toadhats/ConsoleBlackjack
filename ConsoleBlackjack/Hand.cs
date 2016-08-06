@@ -8,7 +8,7 @@ namespace ConsoleBlackjack
 {
     internal class Hand
     {
-        private List<Card> Cards { get; set; } // Should this just be a field instead? I guess no because that would be inconsistent.
+        private List<Card> cards; // Should this just be a field instead? I guess no because that would be inconsistent.
 
         public int Value
         {
@@ -32,9 +32,23 @@ namespace ConsoleBlackjack
                 else return value;
             }
 
+            // setter cannot be used because value is computed - what's best practice in this situation?
             set
             {
                 this.value = value;
+            }
+        }
+
+        public List<Card> Cards
+        {
+            get
+            {
+                return cards;
+            }
+
+            set
+            {
+                cards = value;
             }
         }
 
@@ -49,6 +63,15 @@ namespace ConsoleBlackjack
         public void AddCardToHand(Card c)
         {
             Cards.Add(c);
+        }
+
+        // Experiment - making Hand indexable like an array, e.g. hand[0]
+        public Card this[int index]
+        {
+            get
+            {
+                return Cards[index];
+            }
         }
     }
 }

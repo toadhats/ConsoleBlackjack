@@ -40,6 +40,21 @@ namespace ConsoleBlackjack.Tests
             Assert.AreEqual(20, testHand.Value);
         }
 
+        [TestMethod]
+        public void CardsInHandTest()
+        {
+            Hand testHand = new Hand();
+            Card tenOfSpades = new Card(0, 10);
+            testHand.AddCardToHand(tenOfSpades);
+            Card threeOfClubs = new Card(3, 3);
+            testHand.AddCardToHand(threeOfClubs);
+            Card sevenOfDiamonds = new Card(2, 7);
+            testHand.AddCardToHand(sevenOfDiamonds);
+            Assert.AreEqual(tenOfSpades, testHand[0]);
+            Assert.AreEqual(threeOfClubs, testHand[1]);
+            Assert.AreEqual(sevenOfDiamonds, testHand[2]);
+        }
+
         // Check the ace high logic required to get blackjack
         [TestMethod]
         public void BlackjackTest()

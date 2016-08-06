@@ -35,6 +35,11 @@ namespace ConsoleBlackjack
             return Chips;
         }
 
+        public int GetChips()
+        {
+            return Chips;
+        }
+
         // Returns the new value of the hand after receiving a card
         public int ReceiveCard(Card c)
         {
@@ -46,6 +51,12 @@ namespace ConsoleBlackjack
         public int GetHandValue()
         {
             return hand.Value;
+        }
+
+        // Or just expose the property? This is a bit java-style.
+        public Hand GetHand()
+        {
+            return hand;
         }
     }
 }
