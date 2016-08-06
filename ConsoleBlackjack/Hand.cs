@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleBlackjack
 {
-    internal class Hand
+    internal class Hand : IEnumerable<Card>
     {
         private List<Card> cards; // Should this just be a field instead? I guess no because that would be inconsistent.
 
@@ -73,5 +74,21 @@ namespace ConsoleBlackjack
                 return Cards[index];
             }
         }
+
+        // Experiment 2 - Making it possible to use foreach directly on an instance of Hand
+
+        #region Implementation of IEnumerable
+
+        public IEnumerator<Card> GetEnumerator()
+        {
+            return Cards.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        #endregion Implementation of IEnumerable
     }
 }
