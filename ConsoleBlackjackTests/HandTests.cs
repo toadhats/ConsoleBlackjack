@@ -53,6 +53,11 @@ namespace ConsoleBlackjack.Tests
             Assert.AreEqual(tenOfSpades, testHand[0]);
             Assert.AreEqual(threeOfClubs, testHand[1]);
             Assert.AreEqual(sevenOfDiamonds, testHand[2]);
+            // Testing IEnumerable implementation
+            foreach (Card c in testHand)
+            {
+                Console.WriteLine(c.ToString());
+            }
         }
 
         // Check the ace high logic required to get blackjack

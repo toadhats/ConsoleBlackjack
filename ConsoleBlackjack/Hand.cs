@@ -10,13 +10,14 @@ namespace ConsoleBlackjack
     internal class Hand : IEnumerable<Card>
     {
         private List<Card> cards; // Should this just be a field instead? I guess no because that would be inconsistent.
+        private bool hasAce;
 
         public int Value
         {
             get
             {
                 value = 0; // Should I even be treating the hand value as a property if I'm recalculating it every time?
-                bool hasAce = false;
+                hasAce = false;
                 foreach (Card card in Cards)
                 {
                     if (card.rank == (Card.Rank)1) // Ace = 1 in the rank enum remember
