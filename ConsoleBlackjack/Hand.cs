@@ -9,7 +9,6 @@ namespace ConsoleBlackjack
 {
     internal class Hand : IEnumerable<Card>
     {
-        private List<Card> cards; // Should this just be a field instead? I guess no because that would be inconsistent.
         private bool hasAce;
 
         public int Value
@@ -41,18 +40,7 @@ namespace ConsoleBlackjack
             }
         }
 
-        public List<Card> Cards
-        {
-            get
-            {
-                return cards;
-            }
-
-            set
-            {
-                cards = value;
-            }
-        }
+        public List<Card> Cards { get; set; }
 
         private int value;
 
@@ -68,13 +56,7 @@ namespace ConsoleBlackjack
         }
 
         // Experiment - making Hand indexable like an array, e.g. hand[0]
-        public Card this[int index]
-        {
-            get
-            {
-                return Cards[index];
-            }
-        }
+        public Card this[int index] => Cards[index];
 
         // Experiment 2 - Making it possible to use foreach directly on an instance of Hand
 

@@ -8,16 +8,16 @@ namespace ConsoleBlackjack
 {
     internal class Dealer
     {
-        private Hand hand { get; }
-        private Deck deck;
+        private Hand Hand { get; }
+        private Deck Deck { set; get; }
 
         // This could be variable, allowing different house rules
         private int dealerStands = 17;
 
         public Dealer(Deck deck)
         {
-            hand = new Hand();
-            this.deck = deck;
+            Hand = new Hand();
+            Deck = deck;
         }
 
         // With better use of polymorphism/inheritance I could simplify these methods and reduce
@@ -25,31 +25,31 @@ namespace ConsoleBlackjack
 
         public void DealSelf()
         {
-            hand.AddCardToHand(deck.DrawCard());
-            hand.AddCardToHand(deck.DrawCard());
+            Hand.AddCardToHand(Deck.DrawCard());
+            Hand.AddCardToHand(Deck.DrawCard());
         }
 
         public void DealPlayer(Player player)
         {
-            player.ReceiveCard(deck.DrawCard());
-            player.ReceiveCard(deck.DrawCard());
+            player.ReceiveCard(Deck.DrawCard());
+            player.ReceiveCard(Deck.DrawCard());
         }
 
         public void HitSelf()
         {
-            hand.AddCardToHand(deck.DrawCard());
+            Hand.AddCardToHand(Deck.DrawCard());
         }
 
         public void HitPlayer(Player player)
         {
-            player.ReceiveCard(deck.DrawCard());
+            player.ReceiveCard(Deck.DrawCard());
         }
 
         // I'd need to refactor this if I wanted to allow flexible rules, eg hitting differently on
         // soft hands
         public void Play()
         {
-            while (hand.Value < dealerStands)
+            while (Hand.Value < dealerStands)
             {
                 HitSelf();
             }
@@ -58,7 +58,7 @@ namespace ConsoleBlackjack
         // This feels better than accessing Dealer.Hand.Value from the GameManager
         public int GetHandValue()
         {
-            return hand.Value;
+            return Hand.Value;
         }
     }
 }

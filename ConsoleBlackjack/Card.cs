@@ -62,17 +62,11 @@ namespace ConsoleBlackjack
         // Returns the point value of the card - corresponds to rank up to 10, and then we take the
         // min to cap it there. Ace is 1 by default, need to handle whether to make it 10 elsewhere,
         // in the logic where we add up the points.
-        public int Value
-        {
-            get
-            {
-                return Math.Min(10, (int)rank);
-            }
-        }
+        public int Value => Math.Min(10, (int)rank);
 
         public override string ToString()
         {
-            return String.Format("{0} of {1}", rank.ToString(), suit.ToString());
+            return $"{rank.ToString()} of {suit.ToString()}";
         }
     }
 }
